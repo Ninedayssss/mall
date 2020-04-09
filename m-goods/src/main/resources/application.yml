@@ -1,0 +1,18 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: m-goods
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/mall?useSSL=true&serverTimezone=UTC
+    username: root
+    password: 123
+    driver-class-name: com.mysql.jdbc.Driver
+dubbo:
+  scan:
+    base-packages: com.weimok.goods.service
+  protocol:
+    name: dubbo
+    port: 12346
+  registry:
+    address: zookeeper://127.0.0.1:2181
