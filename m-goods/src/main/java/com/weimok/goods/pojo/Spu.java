@@ -26,7 +26,7 @@ public class Spu {
     private Long cid3;//3级类目
 
     private String title;   //标题
-    private String sub_title;   //子标题
+    private Long price;
     private Boolean saleable;   //是否上架  true1为上架 false0为下架
     private Boolean valid;      //是否有效，逻辑删除使用   true1为有效 false0为无效
 
@@ -36,10 +36,5 @@ public class Spu {
     @Transient
     private String bname;
 
-    @Transient
-    private List<Sku> skus;
-
-    @Transient
-    private SpuDetail spuDetail;
 
 }

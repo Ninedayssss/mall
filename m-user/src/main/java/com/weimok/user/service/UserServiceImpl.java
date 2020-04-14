@@ -1,12 +1,12 @@
 package com.weimok.user.service;
 
+import com.weimok.user.mapper.UserMapper;
+import com.weimok.user.pojo.User;
 import com.weimok.common.api.user.UserService;
 import com.weimok.common.api.user.vo.UserVo;
 import com.weimok.common.enums.ExceptionEnum;
 import com.weimok.common.exception.MallException;
 import com.weimok.common.utils.CodecUtils;
-import com.weimok.user.mapper.UserMapper;
-import com.weimok.user.pojo.User;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,12 +59,25 @@ public class UserServiceImpl implements UserService {
 
         //将查找出来的值返回
         UserVo userVo = new UserVo();
+        userVo.setId(user.getId());
         userVo.setUsername(user.getUsername());
         userVo.setPassword(user.getPassword());
 
 
 
         return userVo;
+    }
+
+    /**
+     * 检查用户名是否存在
+     * @param data
+     * @return
+     */
+    public Boolean checkData(String data) {
+        User user = new User();
+        user.setUsername(data);
+
+        return userMapper.selectCount(user) == 0;
     }
 
 }

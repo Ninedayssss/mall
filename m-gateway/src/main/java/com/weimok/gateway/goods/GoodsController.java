@@ -1,16 +1,12 @@
 package com.weimok.gateway.goods;
 
 import com.weimok.common.api.goods.GoodsService;
-import com.weimok.common.api.goods.vo.SkuVo;
-import com.weimok.common.api.goods.vo.SpuDetailVo;
 import com.weimok.common.api.goods.vo.SpuVo;
 import com.weimok.common.vo.PageResult;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /**
  * @author itsNine
@@ -64,35 +60,8 @@ public class GoodsController {
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
-    /**
-     * 根据spu的id查询详情detail
-     * @param spuId
-     * @return
-     */
-    @GetMapping("/spu/detail/{id}")
-    public ResponseEntity<SpuDetailVo> queryDetailById(@PathVariable("id") Long spuId){
-        return ResponseEntity.ok(goodsService.queryDetailById(spuId));
-    }
 
-    /**
-     * 根据SpuId查询sku
-     * @param spuId
-     * @return
-     */
-    @GetMapping("sku/list")
-    public ResponseEntity<List<SkuVo>> querySkuBySpuId(@RequestParam("id")Long spuId){
-        return ResponseEntity.ok(goodsService.querySkuBySpuId(spuId));
-    }
 
-    /**
-     * 根据sku的id集合查询所有sku
-     * @param ids
-     * @return
-     */
-    @GetMapping("sku/list/ids")
-    public ResponseEntity<List<SkuVo>> querySkuBySpuIds(@RequestParam("ids")List<Long> ids){
-        return ResponseEntity.ok(goodsService.querySkuByIds(ids));
-    }
 
     /**
      * 根据spuid查询spu

@@ -5,9 +5,9 @@ import com.github.pagehelper.PageInfo;
 import com.weimok.common.api.brand.BrandService;
 import com.weimok.common.api.brand.vo.BrandVo;
 import com.weimok.common.enums.ExceptionEnum;
+import com.weimok.goods.mapper.BrandMapper;
 import com.weimok.common.exception.MallException;
 import com.weimok.common.vo.PageResult;
-import com.weimok.goods.mapper.BrandMapper;
 import com.weimok.goods.pojo.Brand;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.dubbo.config.annotation.Service;
@@ -72,7 +72,6 @@ public class BrandServiceImpl implements BrandService {
         }
         PageInfo<Brand> brandPageInfo = new PageInfo<>(list);
         PageInfo<BrandVo> info = new PageInfo<>(BrandVos);
-        System.out.println(info.getTotal());
         return new PageResult<>(brandPageInfo.getTotal(),BrandVos);
     }
 

@@ -3,7 +3,6 @@ package com.weimok.gateway.goods;
 import com.weimok.common.api.category.CategoryService;
 import com.weimok.common.api.category.vo.CategoryVo;
 import org.apache.dubbo.config.annotation.Reference;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

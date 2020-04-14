@@ -1,0 +1,26 @@
+server:
+  port: 8085
+spring:
+  application:
+    name: m-auth
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/mall?useSSL=true&serverTimezone=UTC
+    username: root
+    password: 123
+    driver-class-name: com.mysql.jdbc.Driver
+dubbo:
+  scan:
+    base-packages: com.weimok.auth.service
+  protocol:
+    name: dubbo
+    port: 12347
+  registry:
+    address: zookeeper://127.0.0.1:2181
+mall:
+  jwt:
+    secret: mall@Login(@Auth}*^31)&weimok31%itsNine #登录检验的秘钥
+    pubKeyPath: D:/tensquare/ssh/id_rsa.pub #公钥地址
+    priKeyPath: D:/tensquare/ssh/id_rsa.pri #私钥地址
+    expire: 30 #30分钟过期
+    cookieName: MALL_TOKEN
+    cookieMaxAge: 30

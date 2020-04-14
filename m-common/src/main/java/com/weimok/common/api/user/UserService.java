@@ -9,4 +9,6 @@ public interface UserService {
     void register(UserVo user);
 
     UserVo queryUserByUsernameAndPassword(String username,String password);
+
+    Boolean checkData(String data);
 }
